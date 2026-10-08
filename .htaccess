@@ -1,0 +1,10 @@
+# =====================================================================
+# 検索エンジンにインデックスさせない（HTML以外の画像・動画も含めて全ファイル）
+# Apache（mod_headers が有効なサーバー）で動作します
+# =====================================================================
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive, noimageindex"
+</IfModule>
+
+# 一覧表示を禁止
+Options -Indexes

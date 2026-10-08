@@ -1,0 +1,625 @@
+/* =====================================================================
+   木崎つかさ ポートフォリオ用の追加スタイル
+   テンプレート（style.css）はそのまま使い、差分だけをここに書く
+   ===================================================================== */
+
+/* ---------- 文字 ---------- */
+body.home-personal {
+  font-family: "Funnel Display", "Noto Sans JP", "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+}
+
+body.home-personal p[lang="ja"],
+body.home-personal .kz-bio p {
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+body.home-personal h6[lang="ja"],
+body.home-personal .award-text[lang="ja"] {
+  line-height: 1.5;
+  word-break: auto-phrase;
+}
+
+.kz-lead {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.kz-small {
+  font-size: 14px;
+}
+
+.kz-role {
+  margin-bottom: 0;
+}
+
+.kz-nw {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ---------- ナビ ---------- */
+.navbar .kz-logo {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+body.light .navbar .kz-logo {
+  color: #161616;
+}
+
+/* ---------- ヒーロー ---------- */
+.hero-style6 h1 {
+  /* コンテンツ幅が固定になる大画面でも名前が収まるようにする。 */
+  font-size: min(22vw, 320px);
+  white-space: nowrap;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.hero-style6 .caption h2 {
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* ---------- 作品グリッド ---------- */
+.portfolio-style2 .plink:focus-visible,
+.awards-reval .item-row:focus-visible,
+.kz-variant:focus-visible,
+.kz-short:focus-visible {
+  outline: 2px solid #ddf160;
+  outline-offset: 3px;
+}
+
+.portfolio-style2 .item .fit-img img {
+  transition: transform 0.6s ease;
+}
+
+.portfolio-style2 .item:hover .fit-img img {
+  transform: scale(1.03);
+}
+
+.kz-square {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  overflow: hidden;
+}
+
+.kz-brand {
+  display: block;
+}
+
+/* buttonタグをテンプレートのリンク表示に合わせる */
+button.butn-more {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ---------- 動画：大きい枠 ---------- */
+/* 広告の文字が切れないよう、16:9のまま全体を表示する */
+.kz-reel {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 60px !important;
+  background: #000;
+}
+
+.kz-reel-inner,
+.kz-reel-inner video,
+.kz-reel-inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 991px) {
+  .kz-reel {
+    border-radius: 24px !important;
+  }
+}
+
+/* ---------- 動画：5パターン ---------- */
+.kz-variants {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.kz-variant {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kz-variant-img {
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.kz-variant-img img {
+  transition: transform 0.4s ease;
+}
+
+.kz-variant:hover .kz-variant-img img {
+  transform: scale(1.05);
+}
+
+.kz-variant-copy {
+  display: block;
+  margin-top: 12px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+@media (max-width: 991px) {
+  .kz-variants {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .kz-variant {
+    flex: 0 0 62%;
+    scroll-snap-align: start;
+  }
+}
+
+/* ---------- 動画：縦型スライダー ---------- */
+.kz-shorts .item {
+  padding: 24px 24px 32px;
+}
+
+.kz-short {
+  display: block;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  cursor: pointer;
+}
+
+.kz-short video,
+.kz-short img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kz-sound {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.kz-short:hover .kz-sound {
+  transform: scale(1.1);
+}
+
+.kz-shorts .swiper-pagination {
+  position: relative;
+  margin-top: 40px;
+}
+
+.kz-shorts .swiper-pagination-bullet {
+  background: #fff;
+  opacity: 0.3;
+}
+
+.kz-shorts .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+body.light .kz-shorts .swiper-pagination-bullet {
+  background: #161616;
+}
+
+body.light .kz-shorts .item {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* ---------- About ---------- */
+.kz-bio p {
+  margin-bottom: 1.2em;
+  font-size: 16px;
+}
+
+.kz-facts li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.kz-facts li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.kz-facts-label {
+  opacity: 0.6;
+}
+
+body.light .kz-facts li {
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- メールでのお問い合わせ ---------- */
+.kz-contact-card {
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 20px;
+}
+.kz-contact-email {
+  display: block;
+  font-size: clamp(18px, 2.4vw, 30px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.kz-contact-card a:focus-visible {
+  outline: 3px solid #ddf160;
+  outline-offset: 5px;
+}
+body.light .kz-contact-card { border-color: rgba(0, 0, 0, .16); }
+@media (max-width: 991px) {
+  .kz-contact-heading { margin-bottom: 32px; }
+  .kz-contact-card { padding: 28px 20px; }
+}
+
+/* ---------- ポップアップ（LP・画像・動画） ---------- */
+.kz-mfp.mfp-bg {
+  background: #121212;
+  opacity: 0.98;
+}
+
+.kz-mfp .mfp-container {
+  padding: 0;
+}
+
+.kz-mfp .mfp-content {
+  vertical-align: top;
+}
+
+.kz-viewer {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  color: #fff;
+  text-align: left;
+}
+
+.kz-viewer-head {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  padding: 20px 0 16px;
+  background: rgba(18, 18, 18, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kz-viewer-title {
+  margin: 0;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.kz-viewer-desc {
+  max-width: 64ch;
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.kz-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.kz-tab,
+.kz-icon-btn {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.kz-tab {
+  padding: 7px 16px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+
+.kz-tab:hover,
+.kz-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.kz-tab.is-active {
+  background: #fff;
+  color: #161616;
+}
+
+.kz-viewer-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.kz-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 15px;
+}
+
+.kz-tab:focus-visible,
+.kz-icon-btn:focus-visible {
+  outline: 2px solid #ddf160;
+  outline-offset: 2px;
+}
+
+.kz-viewer-body {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.kz-viewer-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.kz-viewer-body.is-img img {
+  border-radius: 10px;
+}
+
+.kz-viewer-body video {
+  display: block;
+  max-width: 100%;
+  max-height: calc(100vh - 170px);
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #000;
+}
+
+.kz-viewer-body video.is-wide {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .kz-viewer {
+    padding: 0 12px 60px;
+  }
+
+  .kz-viewer-head {
+    padding: 14px 0 12px;
+  }
+
+  .kz-viewer-title {
+    font-size: 15px;
+  }
+
+  .kz-viewer-desc {
+    display: none;
+  }
+}
+
+/* ---------- 動きを減らす設定 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-style2 .item:hover .fit-img img,
+  .kz-variant:hover .kz-variant-img img {
+    transform: none;
+  }
+}
+
+/* ---------- スマホ・タブレット ---------- */
+/* テンプレートは作品画像の高さを400〜450pxに固定するため、
+   LPのサムネイルが極端に縦長になる。画像の比率で表示する */
+@media (max-width: 991px) {
+  .portfolio-style2 .item .fit-img.kz-s {
+    height: auto !important;
+    aspect-ratio: 1.24;
+  }
+
+  .portfolio-style2 .item .fit-img.kz-m {
+    height: auto !important;
+    aspect-ratio: 1.3;
+  }
+
+  .portfolio-style2 .item .fit-img.kz-w {
+    height: auto !important;
+    aspect-ratio: 1.74;
+  }
+
+  .portfolio-style2 .item .fit-img.kz-square {
+    height: auto !important;
+    aspect-ratio: 1;
+  }
+
+  .kz-banners .item {
+    margin-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-style6 .shape-top-left {
+    display: none;
+  }
+
+  .footer-style4 .column .kz-email {
+    font-size: 20px;
+    word-break: break-all;
+  }
+
+  .awards-reval .item-row .award-year {
+    display: block;
+    min-width: 0;
+    margin-bottom: 6px;
+    font-size: 13px;
+    opacity: 0.7;
+  }
+}
+
+/* ライトモードで白いモックアップ画像が背景に溶けないよう、うっすら枠を付ける */
+body.light .portfolio-style2 .item .fit-img {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- バナー・動画の作品一覧 ---------- */
+.kz-gallery-toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.kz-filter-label { display: grid; gap: 8px; font-size: 12px; }
+.kz-gallery-filter {
+  min-width: 230px;
+  max-width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid #777;
+  border-radius: 8px;
+  background: #191919;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+}
+.kz-gallery-count { margin: 0; font-size: 13px; opacity: .7; white-space: nowrap; }
+.kz-media-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 36px 24px; }
+.kz-media-card { min-width: 0; }
+.kz-media-card[hidden], .kz-gallery-more[hidden] { display: none !important; }
+.kz-media-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  background: #242424;
+  cursor: pointer;
+  overflow: hidden;
+}
+.kz-media-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+.kz-media-preview:hover img { transform: scale(1.025); }
+.kz-media-action {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.78);
+  color: #fff;
+  font-size: 16px;
+}
+.kz-media-meta { display: block; margin-top: 8px; font-size: 12px; opacity: .6; }
+.kz-gallery-more-wrap { display: flex; justify-content: center; margin-top: 36px; }
+.kz-gallery-more {
+  padding: 14px 32px;
+  border: 1px solid currentColor;
+  border-radius: 40px;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+}
+.kz-gallery-more:hover { background: #ddf160; color: #161616; border-color: #ddf160; }
+.kz-media-preview:focus-visible, .kz-gallery-filter:focus-visible, .kz-gallery-more:focus-visible { outline: 3px solid #ddf160; outline-offset: 4px; }
+body.light .kz-gallery-filter { background: #fff; color: #161616; }
+body.light .kz-media-preview { background: #f1f1f1; border-color: rgba(0,0,0,.1); }
+body.light .kz-media-preview:focus-visible, body.light .kz-gallery-filter:focus-visible, body.light .kz-gallery-more:focus-visible { outline-color: #596800; }
+@media (max-width: 991px) { .kz-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 767px) {
+  .kz-media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
+  .kz-media-preview { padding: 6px; }
+  .kz-media-card h6 { font-size: 14px !important; }
+  .kz-gallery-filter { min-width: 0; width: 210px; }
+  .kz-gallery-toolbar { gap: 8px; flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) { .kz-media-preview img { transition: none; } .kz-media-preview:hover img { transform: none; } }
+
+/* 標準アンカーで移動し、固定ナビに見出しが隠れるのを防ぐ。 */
+#top, #works, #more-works, #banners, #video, #about, #contact {
+  scroll-margin-top: 100px;
+}
+button.kz-reel-inner {
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+}
+button.kz-reel-inner:focus-visible {
+  outline: 3px solid #ddf160;
+  outline-offset: -6px;
+}
+
+/* 拡大画面の端までスクロールしても背景ページへ操作を伝えない。 */
+.kz-mfp.mfp-wrap {
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
