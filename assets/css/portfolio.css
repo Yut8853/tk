@@ -71,7 +71,7 @@ body.light .navbar .kz-logo {
 .awards-reval .item-row:focus-visible,
 .kz-variant:focus-visible,
 .kz-short:focus-visible {
-  outline: 2px solid #ddf160;
+  outline: 2px solid var(--kz-button-bg);
   outline-offset: 3px;
 }
 
@@ -290,7 +290,7 @@ body.light .kz-facts li {
   overflow-wrap: anywhere;
 }
 .kz-contact-card a:focus-visible {
-  outline: 3px solid #ddf160;
+  outline: 3px solid var(--kz-button-bg);
   outline-offset: 5px;
 }
 body.light .kz-contact-card { border-color: rgba(0, 0, 0, .16); }
@@ -405,7 +405,7 @@ body.light .kz-contact-card { border-color: rgba(0, 0, 0, .16); }
 
 .kz-tab:focus-visible,
 .kz-icon-btn:focus-visible {
-  outline: 2px solid #ddf160;
+  outline: 2px solid var(--kz-button-bg);
   outline-offset: 2px;
 }
 
@@ -588,11 +588,11 @@ body.light .portfolio-style2 .item .fit-img {
   font: inherit;
   font-size: 14px;
 }
-.kz-gallery-more:hover { background: #ddf160; color: #161616; border-color: #ddf160; }
-.kz-media-preview:focus-visible, .kz-gallery-filter:focus-visible, .kz-gallery-more:focus-visible { outline: 3px solid #ddf160; outline-offset: 4px; }
+.kz-gallery-more:hover { background: var(--kz-button-bg); color: #161616; border-color: var(--kz-button-bg); }
+.kz-media-preview:focus-visible, .kz-gallery-filter:focus-visible, .kz-gallery-more:focus-visible { outline: 3px solid var(--kz-button-bg); outline-offset: 4px; }
 body.light .kz-gallery-filter { background: #fff; color: #161616; }
 body.light .kz-media-preview { background: #f1f1f1; border-color: rgba(0,0,0,.1); }
-body.light .kz-media-preview:focus-visible, body.light .kz-gallery-filter:focus-visible, body.light .kz-gallery-more:focus-visible { outline-color: #596800; }
+body.light .kz-media-preview:focus-visible, body.light .kz-gallery-filter:focus-visible, body.light .kz-gallery-more:focus-visible { outline-color: var(--kz-link); }
 @media (max-width: 991px) { .kz-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 767px) {
   .kz-media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 14px; }
@@ -614,7 +614,7 @@ button.kz-reel-inner {
   cursor: pointer;
 }
 button.kz-reel-inner:focus-visible {
-  outline: 3px solid #ddf160;
+  outline: 3px solid var(--kz-button-bg);
   outline-offset: -6px;
 }
 
@@ -624,33 +624,113 @@ button.kz-reel-inner:focus-visible {
   -webkit-overflow-scrolling: touch;
 }
 
-/* ---------- 記事LP：安定した誌面プレビュー ---------- */
-.kz-articles { padding: 30px 0 100px; scroll-margin-top: 100px; }
-.kz-article-heading { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 36px; }
-.kz-article-heading h2 { font-size: clamp(36px, 5vw, 64px); letter-spacing: -.04em; }
-.kz-article-heading p { margin: 0; font-size: 13px; opacity: .65; }
-.kz-article-eyebrow { display: block; font-size: 11px; letter-spacing: .18em; margin-bottom: 12px; color: #ddf160; }
-.kz-article-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 28px; }
-.kz-article-card { display: block; min-width: 0; color: inherit; text-decoration: none; }
-.kz-article-preview { position: relative; display: flex; justify-content: center; align-items: flex-start; height: 400px; padding: 28px 24px 0; overflow: hidden; border-radius: 12px; background: #e9ded1; isolation: isolate; }
-.kz-article-card:nth-child(2) .kz-article-preview, .kz-article-card:nth-child(3) .kz-article-preview { background: #e7dadd; }
-.kz-article-preview::after { content: ""; position: absolute; inset: auto 0 0; height: 90px; background: linear-gradient(transparent, #0003); pointer-events: none; }
-.kz-article-preview .kz-article-strip { display: block; position: static; flex: 0 0 auto; width: min(100%, 320px); max-width: 100%; height: auto; box-shadow: 0 8px 28px #0002; }
-.kz-article-open { position: absolute; z-index: 1; bottom: 18px; right: 18px; border: 1px solid #ffffff30; border-radius: 30px; background: #171717; color: #fff; padding: 12px 18px; font-size: 12px; letter-spacing: .06em; }
-.kz-article-card:hover .kz-article-open { background: #ddf160; color: #161616; }
-.kz-article-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 18px 0 10px; font-size: 11px; letter-spacing: .1em; opacity: .6; }
-.kz-article-card h3 { font-size: 17px; line-height: 1.65; margin: 0; overflow-wrap: anywhere; }
-.kz-article-card:focus-visible { outline: 2px solid #ddf160; outline-offset: 7px; }
+/* 記事LPは既存の作品一覧と共通のレイアウトを使用。長い誌面は冒頭を表示する。 */
+#articles { scroll-margin-top: 100px; }
+.portfolio-style2 .item .fit-img.kz-article-thumb { overflow: hidden; }
+.portfolio-style2 .item .fit-img.kz-article-thumb img { object-position: center top; }
 .kz-article-viewer .kz-viewer-body { background: #fff; }
 .kz-article-end { display: block; margin: 32px auto 0; padding: 12px 24px; border: 1px solid #ffffff50; border-radius: 30px; background: transparent; color: #fff; cursor: pointer; }
-body.light .kz-article-eyebrow { color: #5e691d; }
 @media (max-width: 575px) {
- .kz-article-heading { display: block; }
- .kz-article-heading p { margin-top: 16px; }
- .kz-article-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
- .kz-article-preview { height: 340px; padding: 20px 24px 0; }
- .kz-article-preview .kz-article-strip { width: min(100%, 280px); }
- .kz-article-card h3 { font-size: 16px; }
- .kz-article-viewer .kz-tabs { gap: 5px; }
- .kz-article-viewer .kz-tab { padding: 7px 11px; }
+  .kz-article-viewer .kz-tabs { gap: 5px; }
+  .kz-article-viewer .kz-tab { padding: 7px 11px; }
+}
+
+/* ---------- 共通アクセント：クリアなバイオレット ---------- */
+:root {
+  --kz-button-bg: #a78bfa;
+  --kz-link: #fff;
+  --kz-link-hover: #fff;
+  --kz-button-hover: #fff;
+  --kz-button-ink: #181224;
+  --kz-button-text: #fff;
+}
+body.home-personal :is(.butn-arrow, .butn-more, .kz-gallery-more, .kz-icon-btn, .kz-tab, .kz-article-end, .theme-icon, .navbar-toggler, .progress-wrap) {
+  background: var(--kz-button-bg) !important;
+  border-color: var(--kz-button-bg);
+  color: var(--kz-button-text) !important;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+body.home-personal :is(.butn-arrow, .butn-more, .kz-gallery-more, .kz-icon-btn, .kz-tab, .kz-article-end, .theme-icon, .navbar-toggler, .progress-wrap):is(:hover, :focus-visible) {
+  background: var(--kz-button-hover) !important;
+  border-color: var(--kz-button-ink);
+  color: var(--kz-button-ink) !important;
+}
+body.home-personal .butn-more {
+  padding: 8px 12px 8px 20px;
+  border-radius: 40px;
+}
+body.home-personal :is(.butn-arrow, .butn-more) .arrow-icon {
+  background: transparent;
+  color: inherit;
+}
+body.home-personal :is(.butn-arrow, .butn-more) .arrow-icon svg {
+  stroke: currentColor;
+}
+body.home-personal :is(.theme-icon, .navbar-toggler) {
+  border: 1px solid var(--kz-button-bg);
+  border-radius: 50%;
+  min-width: 44px;
+  min-height: 44px;
+}
+body.home-personal .kz-tab.is-active {
+  box-shadow: inset 0 0 0 2px var(--kz-button-ink);
+  font-weight: 700;
+}
+/* 作品画像は保持し、再生・拡大の操作アイコンに共通色を適用。 */
+body.home-personal :is(.kz-media-action, .kz-sound) {
+  background: var(--kz-button-bg);
+  color: var(--kz-button-text);
+  transition: background-color .2s ease;
+}
+body.home-personal :is(.kz-media-preview, .kz-short):is(:hover, :focus-visible) :is(.kz-media-action, .kz-sound) {
+  background: var(--kz-button-hover);
+  color: var(--kz-button-ink);
+}
+body.home-personal :is(.kz-variant, .kz-reel-inner) {
+  outline: 2px solid var(--kz-button-bg);
+  outline-offset: -2px;
+}
+body.home-personal :is(.kz-variant, .kz-reel-inner):is(:hover, :focus-visible) {
+  outline-color: var(--kz-button-hover);
+}
+body.home-personal .progress-wrap { mix-blend-mode: normal; }
+body.home-personal .progress-wrap::after { color: currentColor; }
+body.home-personal .progress-wrap svg.progress-circle path { stroke: currentColor; }
+body.home-personal .kz-shorts .swiper-pagination-bullet { background: var(--kz-button-bg); }
+body.home-personal .kz-shorts .swiper-pagination-bullet:is(:hover, :focus-visible) { background: var(--kz-button-hover); }
+body.home-personal :is(button, .butn-arrow, .butn-more):focus-visible {
+  outline: 2px solid var(--kz-button-bg);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.home-personal :is(.butn-arrow, .butn-more, .kz-gallery-more, .kz-icon-btn, .kz-tab, .kz-article-end, .theme-icon, .navbar-toggler, .progress-wrap, .kz-media-action, .kz-sound) { transition: none; }
+}
+
+/* 黒背景の文字・リンク・アイコンは白。ライト表示では濃色を維持する。 */
+body.home-personal.light {
+  --kz-link: #161616;
+  --kz-link-hover: #161616;
+}
+body.home-personal a:not(.butn-arrow):not(.butn-more):not(.plink):not(.kz-media-preview),
+body.home-personal .navbar a.nav-link,
+body.home-personal .navbar a.kz-logo {
+  color: var(--kz-link);
+  transition: color .2s ease;
+}
+body.home-personal a:not(.butn-arrow):not(.butn-more):not(.plink):not(.kz-media-preview):is(:hover, :focus-visible),
+body.home-personal .navbar a.nav-link:is(:hover, :focus-visible),
+body.home-personal .navbar a.kz-logo:is(:hover, :focus-visible) {
+  color: var(--kz-link-hover);
+}
+body.home-personal .main-color { color: var(--kz-link) !important; }
+body.home-personal .award-icon { color: var(--kz-link); transition: color .2s ease; }
+body.home-personal .item-row:is(:hover, :focus-visible) .award-icon { color: var(--kz-link-hover); }
+body.home-personal .kz-gallery-filter:focus-visible,
+body.home-personal a:focus-visible,
+body.home-personal .item-row:focus-visible {
+  outline: 2px solid var(--kz-link);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.home-personal a, body.home-personal .award-icon { transition: none !important; }
 }
