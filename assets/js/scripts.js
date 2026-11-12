@@ -34,34 +34,26 @@ $(function () {
 
     $(function () {
 
-        function isLight() {
-            return localStorage.getItem("light-mode");
-        }
+        var body = document.querySelector("body:not(.notmode)");
+        var toggle = document.querySelector(".theme-icon");
+        if (!body || !toggle) return;
 
-        function toggleRootClass() {
-            document.querySelector("body:not(.notmode)").classList.toggle("light");
+        function syncTheme() {
+            var light = body.classList.contains("light");
+            document.documentElement.classList.toggle("kz-light", light);
+            $(".navbar .logo img , footer .logo img").attr("src",
+                light ? "assets/imgs/logo-dark.svg" : "assets/imgs/logo-light.svg");
         }
-
-        function toggleLocalStorageItem() {
-            if (isLight()) {
-                localStorage.removeItem("light-mode");
-                $(".navbar .logo img , footer .logo img").attr("src", "assets/imgs/logo-light.svg");
-            } else {
-                localStorage.setItem("light-mode", "set");
-                $(".navbar .logo img , footer .logo img").attr("src", "assets/imgs/logo-dark.svg");
-            }
-        }
-
-        if (isLight()) {
-            toggleRootClass();
-        }
-
-        document.querySelector(".theme-icon").addEventListener("click", () => {
-            toggleLocalStorageItem();
-            toggleRootClass();
+        // 初期テーマは本文の描画前に適用済み。ここでは反転させない。
+        syncTheme();
+        toggle.addEventListener("click", function () {
+            body.classList.toggle("light");
+            syncTheme();
+            try {
+                if (body.classList.contains("light")) localStorage.setItem("light-mode", "set");
+                else localStorage.removeItem("light-mode");
+            } catch (e) { /* 保存できない場合も切り替えは使える */ }
         });
-
-        $("body.light .navbar .logo img , body.light footer .logo img").attr("src", "assets/imgs/logo-dark.svg");
 
     });
 

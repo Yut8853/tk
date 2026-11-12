@@ -101,10 +101,10 @@ $(function () {
       }).join("");
 
       var html =
-        '<div class="kz-viewer">' +
+        '<div class="kz-viewer' + (key === 'skincare-articles' ? ' kz-article-viewer' : '') + '">' +
         headHtml(title, desc, tabs, nav) +
         '<div class="kz-viewer-body' + (it.kind === "img" ? " is-img" : "") + '" style="max-width:' + it.disp + 'px">' +
-        imgs + "</div></div>";
+        imgs + "</div>" + (key === "skincare-articles" ? '<button type="button" class="kz-article-end kz-close">一覧に戻る ↗</button>' : "") + "</div>";
       return { src: html, type: "inline" };
     });
   }
